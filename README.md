@@ -13,7 +13,7 @@ Pour corriger ce problème de manière simple, il suffit simplement de mettre l'
 Rendre cela automatique au sein d'un script est le meilleur moyen d'éviter tout futur problème avec ce modèle spécifique. Le script va installer du code permettant de s'activer à chaque démarrage/redémarrage de l'ordinateur, et ainsi éviter les problèmes lorsque la batterie est, soit retirée, soit vidée.
 
 Pour exécuter le script sur un Lenovo A475 :
-1. Téléchargez le script [https://raw.githubusercontent.com/ec-cvdl/LENOVO_A475_LINUX_Trackpad_FIX/refs/heads/main/fix-touchpad.sh](ici)
+1. Téléchargez le script [[https://raw.githubusercontent.com/ec-cvdl/LENOVO_A475_LINUX_Trackpad_FIX/refs/heads/main/fix-touchpad.sh](https://raw.githubusercontent.com/ec-cvdl/LENOVO_A475_LINUX_Trackpad_FIX/refs/heads/main/fix-touchpad.sh)]
 2. Ouvrez un Terminal à l'endroit où le script a été téléchargé
 3. Tapez la commande suivante :
   ```bash
