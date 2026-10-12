@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# fix-touchpad.sh (v3)
+# fix-touchpad.sh (v3.1 - démarrage anticipé)
 # Corrige le problème de souris/touchpad i2c-hid non détecté
 # sur Lenovo A475 (et modèles similaires) sous Linux Mint.
 #
@@ -9,6 +9,7 @@
 # - Vérification que le touchpad est bien détecté après coup
 # - Escalade automatique vers un cycle de veille réel si besoin
 # - Installe un correctif persistant : au boot ET après chaque réveil
+# - Lance le service avant l’écran de connexion, après le déclenchement udev
 #
 # Usage : sudo bash fix-touchpad.sh
 #
@@ -173,7 +174,10 @@ echo "[2/3] Installation des déclencheurs automatiques (boot + réveil)..."
 cat > /etc/systemd/system/fix-touchpad.service <<EOF
 [Unit]
 Description=Correction automatique touchpad/souris i2c-hid (Lenovo A475)
-After=multi-user.target graphical.target
+# Attend le déclenchement initial de la détection matérielle,
+# sans attendre le chargement de l’interface graphique.
+After=systemd-udev-trigger.service
+Before=display-manager.service
 
 [Service]
 Type=oneshot
